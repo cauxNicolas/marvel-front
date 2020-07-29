@@ -4,21 +4,32 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState({});
+  const [dataLogin, setDataLogin] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(process.env.REACT_APP_MARVEL);
-      setData(response.data);
+      setDataLogin(response.data);
     };
     setIsLoading(false);
     fetchData();
   }, []);
-  console.log(data);
+
+  console.log(dataLogin.data);
   return (
     <div>
-      {isLoading === true ? <p>chargement en cours ...</p> : <div>ok</div>}
+      {isLoading === true ? (
+        <p>chargement en cours ...</p>
+      ) : (
+        <div>
+          <p>
+            {dataLogin.data.results.map((result, index) => {
+              return <p key={index}>{result.id}</p>;
+            })}
+          </p>
+        </div>
+      )}
     </div>
   );
 }

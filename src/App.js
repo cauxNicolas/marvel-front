@@ -11,8 +11,8 @@ function App() {
     const fetchData = async () => {
       const response = await axios.get(process.env.REACT_APP_MARVEL);
       setDataLogin(response.data);
+      setIsLoading(false);
     };
-    setIsLoading(false);
     fetchData();
   }, []);
 

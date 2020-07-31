@@ -38,6 +38,23 @@ h2 {
   margin-bottom: 20px;
 }
 
+.loading {
+  width: 100vw;
+  height: calc(100vh - 93px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading p {
+  font-weight: 900;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-style: italic;
+  line-height: 3.3rem;
+  text-align: center;
+}
+
 /* HOME */
 .homeFlex {
   display: flex;
@@ -93,12 +110,15 @@ h2 {
 }
 
 /* PERSONNAGES */
-#personnages main {
+#personnages main,
+main#perso,
+#comics main {
   background-color: #f5f5f5;
   color: initial;
 }
 
-#personnages .content {
+#personnages .content,
+#comics .content {
   padding: 20px;
 }
 
@@ -113,6 +133,17 @@ h2 {
   color: initial;
   background-color: white;
   cursor: pointer;
+  box-shadow: #00000026 0px 2px 4px 0px;
+}
+
+#personnages .content > a:hover {
+  transform: translateY(-4px);
+  box-shadow: #00000015 0px 15px 15px 0px;
+  transition: 0.3s;
+}
+
+#personnages .content > a:active {
+  transform: translateY(0px);
   box-shadow: #00000026 0px 2px 4px 0px;
 }
 
@@ -142,6 +173,23 @@ h2 {
 #personnages .blockElementDesc {
   overflow: hidden;
   height: 150px;
+}
+
+#personnages .pagination {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#personnages .pagination button {
+  border: none;
+  margin: 5px 10px;
+  padding: 5px 5px;
+  color: #f11f22;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: none;
 }
 
 /* PERSO */
@@ -181,6 +229,8 @@ h2 {
 .contentPersoComics {
   height: 400px;
   overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .contentPersoComics > div {
@@ -190,7 +240,8 @@ h2 {
 .comicsDesc {
   display: flex;
   margin-bottom: 20px;
-  align-items: center;
+  align-items: flex-start;
+  width: 45%;
 }
 
 .comicsTitle {

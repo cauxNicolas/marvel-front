@@ -25,7 +25,9 @@ const Personnages = () => {
   return (
     <div id="personnages">
       {isLoading === true ? (
-        <p>chargement en cours ...</p>
+        <div className="loading">
+          <p>chargement de Super Héros en cours ...</p>
+        </div>
       ) : (
         <main>
           <div className="content">
@@ -50,8 +52,7 @@ const Personnages = () => {
               );
             })}
           </div>
-          <div>
-            Pagination
+          <div className="pagination">
             <Pagination
               limit={limit}
               total={dataLogin.data.total}

@@ -4,7 +4,7 @@ const Pagination = ({ limit, total, setOffset }) => {
   const buttonsCount = total / limit;
   const buttons = [];
 
-  for (let i = 0; i <= buttonsCount; i++) {
+  for (let i = 1; i <= buttonsCount; i++) {
     buttons.push(
       <button
         key={i}

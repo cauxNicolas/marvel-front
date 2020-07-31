@@ -30,13 +30,15 @@ const Perso = () => {
   return (
     <>
       {isLoading === true ? (
-        <p>chargement en cours ...</p>
+        <div className="loading">
+          <p>chargement du Héros en cours ...</p>
+        </div>
       ) : (
         <>
           {data.data.results.map((result, index) => {
             console.log("desc", result.description);
             return (
-              <div key={index}>
+              <main id="perso" key={index}>
                 <div className="blocPerso">
                   <div
                     className="blocPersoImg"
@@ -55,25 +57,29 @@ const Perso = () => {
                         <hr />
                       </>
                     )}
-                    <div className="blocPersoComics">
-                      <p className="bold marginBot20">Comics</p>
-                      <div className="contentPersoComics">
-                        {dataComics.data.results.map((result, index) => {
-                          return (
-                            <div key={result.id} className="comicsDesc">
-                              <img
-                                src={`${result.thumbnail.path}.${result.thumbnail.extension}`}
-                                alt={result.title}
-                              />
-                              <p className="comicsTitle">{result.title}</p>
-                            </div>
-                          );
-                        })}
+                    {result.comics.available === 0 ? (
+                      <></>
+                    ) : (
+                      <div className="blocPersoComics">
+                        <p className="bold marginBot20">Comics</p>
+                        <div className="contentPersoComics">
+                          {dataComics.data.results.map((result) => {
+                            return (
+                              <div key={result.id} className="comicsDesc">
+                                <img
+                                  src={`${result.thumbnail.path}.${result.thumbnail.extension}`}
+                                  alt={result.title}
+                                />
+                                <p className="comicsTitle">{result.title}</p>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
-              </div>
+              </main>
             );
           })}
         </>

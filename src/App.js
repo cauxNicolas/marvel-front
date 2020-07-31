@@ -1,35 +1,40 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Personnages from "./containers/Personnages";
+import Home from "./containers/Home";
+import Comics from "./containers/Comics";
+import Favoris from "./containers/Favoris";
+import Header from "./components/Header";
+import Perso from "./containers/Perso";
 
 import "./App.css";
 
 function App() {
-  const [dataLogin, setDataLogin] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(process.env.REACT_APP_MARVEL);
-      setDataLogin(response.data);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
-
-  console.log(dataLogin.data);
   return (
     <div>
-      {isLoading === true ? (
-        <p>chargement en cours ...</p>
-      ) : (
-        <div>
-          <p>
-            {dataLogin.data.results.map((result, index) => {
-              return <p key={index}>{result.id}</p>;
-            })}
-          </p>
-        </div>
-      )}
+      <Router>
+        <Switch>
+          <Route path="/personnages">
+            <Header />
+            <Personnages />
+          </Route>
+          <Route path="/perso/:id">
+            <Header />
+            <Perso />
+          </Route>
+          <Route path="/comics">
+            <Header />
+            <Comics />
+          </Route>
+          <Route path="/favoris">
+            <Header />
+            <Favoris />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

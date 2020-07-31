@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+html {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 100%;
+}
+
+main {
+  background-color: black;
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+
+p {
+  line-height: 1.2rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+/* HOME */
+.homeFlex {
+  display: flex;
+  align-items: flex-end;
+}
+
+#home.contentHome {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  /*   width: 500px; */
+  margin: 0 auto;
+}
+
+#home .marvel-bg {
+  flex-shrink: 1;
+}
+
+#home .marvel-bg img {
+  width: 100%;
+}
+
+#home .flexLink {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 20px;
+}
+
+#home .flexLink a {
+  padding: 0px 20px;
+}
+
+/* HEADER */
+
+#header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: #00000026 0px 2px 4px 0px;
+}
+
+#header img {
+  height: 50px;
+}
+
+#header a {
+  color: initial;
+  margin-right: 30px;
+}
+
+/* PERSONNAGES */
+#personnages main {
+  background-color: #f5f5f5;
+  color: initial;
+}
+
+#personnages .content {
+  padding: 20px;
+}
+
+#personnages .content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#personnages .content > a {
+  width: 200px;
+  margin: 20px;
+  color: initial;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: #00000026 0px 2px 4px 0px;
+}
+
+#personnages .blockImg {
+  width: 200px;
+  height: 170px;
+  overflow: hidden;
+}
+
+#personnages .blockImg img {
+  width: 160%;
+  /* object-position: 0px -50px; */
+}
+
+#personnages .blockElement {
+  padding: 0 20px 20px 20px;
+}
+
+#personnages a .blockElement p {
+  font-style: italic;
+  line-height: 1.2rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: grey;
+}
+
+#personnages .blockElementDesc {
+  overflow: hidden;
+  height: 150px;
+}

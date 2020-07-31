@@ -15,12 +15,13 @@ const Personnages = () => {
       const response = await axios.get(
         `http://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=${limit}&${process.env.REACT_APP_MARVEL}`
       );
+
       setDataLogin(response.data);
       setIsLoading(false);
     };
     fetchData();
   }, [offset]);
-
+  console.log(dataLogin.data);
   return (
     <div id="personnages">
       {isLoading === true ? (
@@ -34,6 +35,7 @@ const Personnages = () => {
                   <div className="blockImg">
                     <img
                       src={`${result.thumbnail.path}.${result.thumbnail.extension}`}
+                      alt={result.name}
                     />
                   </div>
                   <div className="blockElement">

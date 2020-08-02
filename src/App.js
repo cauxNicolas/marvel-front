@@ -20,12 +20,12 @@ function App() {
 
   const handleSearch = (event) => {
     setSearch(event.target.value);
-    console.log(search);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // recherche differente selon la page characters ou comics
     if (location === "/comics") {
       locationUrl = "/comics?titleStartsWith=";
     }

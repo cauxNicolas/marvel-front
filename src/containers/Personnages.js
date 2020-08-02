@@ -7,8 +7,9 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
   let location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [offset, setOffset] = useState(0);
+  const [favoris, setFavoris] = useState("star");
 
-  const limit = 99;
+  const limit = 100;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,17 +23,22 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
   }, [offset, setDataLogin]);
   setLocation(location.pathname);
 
-  console.log(dataLogin.data);
+  // check favoris
+
   return (
     <div id="personnages">
       {isLoading === true ? (
         <div className="loading">
-          <p>chargement de Super Héros en cours ...</p>
+          <p>chargement de Super Héros ...</p>
         </div>
       ) : (
         <main>
           <div className="content">
             {dataLogin.data.results.map((result) => {
+              const goToFavoris = (event) => {
+                event.preventDefault();
+                setFavoris(!favoris);
+              };
               return (
                 <Link key={result.id} to={"/perso/" + result.id}>
                   <div className="blockImg">
@@ -49,6 +55,12 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
                       </div>
                     )}
                   </div>
+                  <div
+                    className={favoris ? "star" : "starRed"}
+                    onClick={goToFavoris}
+                  >
+                    <i className="fas fa-star"></i>
+                  </div>
                 </Link>
               );
             })}
@@ -59,7 +71,6 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
               total={dataLogin.data.total}
               setOffset={setOffset}
             />
-            <div></div>
           </div>
         </main>
       )}

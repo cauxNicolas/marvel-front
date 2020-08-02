@@ -165,6 +165,7 @@ main#perso,
   background-color: white;
   cursor: pointer;
   box-shadow: #00000026 0px 2px 4px 0px;
+  position: relative;
 }
 
 #personnages .content > a:hover {
@@ -206,13 +207,28 @@ main#perso,
   height: 150px;
 }
 
-#personnages .pagination {
+.star {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  color: white;
+}
+
+.starRed {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  color: red;
+}
+
+/* PAGINATION */
+.pagination {
   padding: 20px;
   display: flex;
   justify-content: center;
 }
 
-#personnages .pagination button {
+.pagination button {
   border: none;
   margin: 5px 10px;
   padding: 5px 5px;

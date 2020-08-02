@@ -8,7 +8,7 @@ const Comics = ({ dataComics, setDataComics, setLocation }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [offset, setOffset] = useState(0);
 
-  const limit = 99;
+  const limit = 100;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,13 +21,12 @@ const Comics = ({ dataComics, setDataComics, setLocation }) => {
     fetchData();
   }, [offset, setDataComics]);
   setLocation(location.pathname);
-  console.log(dataComics.data);
 
   return (
     <div id="comics">
       {isLoading === true ? (
         <div className="loading">
-          <p>Chargement de Comics en cours ...</p>
+          <p>Chargement de Comics ...</p>
         </div>
       ) : (
         <main>
@@ -52,6 +51,7 @@ const Comics = ({ dataComics, setDataComics, setLocation }) => {
             <Pagination
               limit={limit}
               total={dataComics.data.total}
+              offset={dataComics.data.offset}
               setOffset={setOffset}
             />
           </div>

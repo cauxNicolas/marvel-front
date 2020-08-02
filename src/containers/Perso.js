@@ -31,7 +31,7 @@ const Perso = () => {
     <>
       {isLoading === true ? (
         <div className="loading">
-          <p>chargement du Héros en cours ...</p>
+          <p>Chargement du Héro ...</p>
         </div>
       ) : (
         <>

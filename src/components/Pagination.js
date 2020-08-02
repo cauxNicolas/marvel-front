@@ -1,7 +1,7 @@
 import React from "react";
 
 const Pagination = ({ limit, total, setOffset }) => {
-  const buttonsCount = total / limit;
+  const buttonsCount = Math.round(total / limit); // merci Eros Math.round()
   const buttons = [];
 
   for (let i = 1; i <= buttonsCount; i++) {
@@ -9,7 +9,7 @@ const Pagination = ({ limit, total, setOffset }) => {
       <button
         key={i}
         onClick={() => {
-          setOffset(i * limit);
+          setOffset(i * limit - 100);
         }}
       >
         {i}

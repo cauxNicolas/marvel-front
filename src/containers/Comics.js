@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Pagination from "../components/Pagination";
+import ComicsCard from "../components/ComicsCard";
 import axios from "axios";
 
 const Comics = ({ dataComics, setDataComics, setLocation }) => {
@@ -34,15 +35,11 @@ const Comics = ({ dataComics, setDataComics, setLocation }) => {
             {dataComics.data.results.map((result) => {
               return (
                 <div key={result.id} className="blocComics">
-                  <div className="blocComicsImg">
-                    <img
-                      src={`${result.thumbnail.path}.${result.thumbnail.extension}`}
-                      alt={result.title}
-                    />
-                  </div>
-                  <div className="blocComicsText">
-                    <p>{result.title}</p>
-                  </div>
+                  <ComicsCard
+                    url={result.thumbnail.path}
+                    extension={result.thumbnail.extension}
+                    title={result.title}
+                  />
                 </div>
               );
             })}

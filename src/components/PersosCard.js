@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const PersoCard = ({ url, extension, alt, description }) => {
+const PersosCard = ({ url, extension, alt, description }) => {
   const [favoris, setFavoris] = useState("star");
 
   // check favoris
@@ -29,4 +29,4 @@ const PersoCard = ({ url, extension, alt, description }) => {
   );
 };
 
-export default PersoCard;
+export default PersosCard;

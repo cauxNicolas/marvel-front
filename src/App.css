@@ -298,6 +298,7 @@ main#perso,
   padding: 20px 0;
   background-color: white;
   box-shadow: #00000026 0px 2px 4px 0px;
+  position: relative;
 }
 
 #comics .blocComics .blocComicsImg {
@@ -323,16 +324,38 @@ main#perso,
 }
 
 /* FAVORIS */
+.star i {
+  font-size: 2rem;
+}
+
+.starRed i {
+  font-size: 2rem;
+}
+
 .star {
   position: absolute;
-  top: 16px;
-  left: 10px;
-  color: black;
+  top: -15px;
+  left: -15px;
+  color: #d4d4d49c;
 }
 
 .starRed {
   position: absolute;
-  top: 16px;
-  left: 10px;
+  top: -15px;
+  left: -15px;
+  color: red;
+}
+
+#comics .star {
+  position: absolute;
+  top: -10px;
+  left: -15px;
+  color: #d4d4d49c;
+}
+
+#comics .starRed {
+  position: absolute;
+  top: -10px;
+  left: -15px;
   color: red;
 }

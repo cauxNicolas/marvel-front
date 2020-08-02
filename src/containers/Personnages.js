@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Pagination from "../components/Pagination";
-import persoCard from "../components/PersoCard";
 import axios from "axios";
-import PersoCard from "../components/PersoCard";
+import PersosCard from "../components/PersosCard";
 
 const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
   let location = useLocation();
@@ -36,7 +35,7 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
             {dataLogin.data.results.map((result) => {
               return (
                 <Link key={result.id} to={"/perso/" + result.id}>
-                  <PersoCard
+                  <PersosCard
                     url={result.thumbnail.path}
                     extension={result.thumbnail.extension}
                     alt={result.name}

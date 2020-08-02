@@ -207,20 +207,6 @@ main#perso,
   height: 150px;
 }
 
-.star {
-  position: absolute;
-  top: 16px;
-  left: 10px;
-  color: white;
-}
-
-.starRed {
-  position: absolute;
-  top: 16px;
-  left: 10px;
-  color: red;
-}
-
 /* PAGINATION */
 .pagination {
   padding: 20px;
@@ -334,4 +320,19 @@ main#perso,
 
 #comics .blocComics p {
   margin-top: 20px;
+}
+
+/* FAVORIS */
+.star {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  color: black;
+}
+
+.starRed {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  color: red;
 }

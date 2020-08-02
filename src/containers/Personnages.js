@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Pagination from "../components/Pagination";
+import persoCard from "../components/PersoCard";
 import axios from "axios";
+import PersoCard from "../components/PersoCard";
 
 const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
   let location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [offset, setOffset] = useState(0);
-  const [favoris, setFavoris] = useState("star");
 
   const limit = 100;
 
@@ -23,8 +24,6 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
   }, [offset, setDataLogin]);
   setLocation(location.pathname);
 
-  // check favoris
-
   return (
     <div id="personnages">
       {isLoading === true ? (
@@ -35,32 +34,14 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
         <main>
           <div className="content">
             {dataLogin.data.results.map((result) => {
-              const goToFavoris = (event) => {
-                event.preventDefault();
-                setFavoris(!favoris);
-              };
               return (
                 <Link key={result.id} to={"/perso/" + result.id}>
-                  <div className="blockImg">
-                    <img
-                      src={`${result.thumbnail.path}.${result.thumbnail.extension}`}
-                      alt={result.name}
-                    />
-                  </div>
-                  <div className="blockElement">
-                    <h2>{result.name}</h2>
-                    {result.description && (
-                      <div className="blockElementDesc">
-                        <p>{result.description}</p>
-                      </div>
-                    )}
-                  </div>
-                  <div
-                    className={favoris ? "star" : "starRed"}
-                    onClick={goToFavoris}
-                  >
-                    <i className="fas fa-star"></i>
-                  </div>
+                  <PersoCard
+                    url={result.thumbnail.path}
+                    extension={result.thumbnail.extension}
+                    alt={result.name}
+                    description={result.description}
+                  />
                 </Link>
               );
             })}

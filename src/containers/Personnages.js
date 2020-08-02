@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import axios from "axios";
 
-const Personnages = () => {
-  const [dataLogin, setDataLogin] = useState({});
+const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
+  let location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [offset, setOffset] = useState(0);
 
@@ -15,12 +15,13 @@ const Personnages = () => {
       const response = await axios.get(
         `http://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=${limit}&${process.env.REACT_APP_MARVEL}`
       );
-
       setDataLogin(response.data);
       setIsLoading(false);
     };
     fetchData();
-  }, [offset]);
+  }, [offset, setDataLogin]);
+  setLocation(location.pathname);
+
   console.log(dataLogin.data);
   return (
     <div id="personnages">

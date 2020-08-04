@@ -1,13 +1,35 @@
 import React, { useState } from "react";
+import Cookies from "js-cookie";
 
-const ComicsCard = ({ url, extension, title }) => {
+const ComicsCard = ({
+  url,
+  extension,
+  title,
+  id,
+  setTabcomicsid,
+  newTabComicsId,
+}) => {
   const [favoris, setFavoris] = useState("star");
 
   // check favoris
   const goToFavoris = (event) => {
     event.preventDefault();
+    // toggle star
     setFavoris(!favoris);
+    // on push dans le tableau
+    if (newTabComicsId.indexOf(id) === -1) {
+      newTabComicsId.push(id);
+      let updateCookie = `${Cookies.get("/comics")}-${id};`;
+      Cookies.set(id, "/comics", { expires: 7 });
+    } else {
+      let suppr = newTabComicsId.indexOf(id);
+      newTabComicsId.splice(suppr, 1);
+      Cookies.remove(id);
+    }
+
+    setTabcomicsid(newTabComicsId);
   };
+
   return (
     <>
       <div className="blocComicsImg">

@@ -8,6 +8,9 @@ const Comics = ({ dataComics, setDataComics, setLocation }) => {
   let location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [offset, setOffset] = useState(0);
+  // pour les favoris
+  const [tabComicsId, setTabcomicsid] = useState([]);
+  const newTabComicsId = [...tabComicsId];
 
   const limit = 100;
 
@@ -39,6 +42,9 @@ const Comics = ({ dataComics, setDataComics, setLocation }) => {
                     url={result.thumbnail.path}
                     extension={result.thumbnail.extension}
                     title={result.title}
+                    id={result.id}
+                    setTabcomicsid={setTabcomicsid}
+                    newTabComicsId={newTabComicsId}
                   />
                 </div>
               );

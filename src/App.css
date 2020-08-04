@@ -55,39 +55,54 @@ h2 {
   text-align: center;
 }
 
-/* HOME */
-.homeFlex {
-  display: flex;
-  align-items: flex-end;
+#marvel main {
+  height: 100vh;
 }
 
-#home.contentHome {
+/* HOME */
+#home {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   height: 100vh;
-  /*   width: 500px; */
-  margin: 0 auto;
+  background-image: url(./img/marvel-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
 #home .marvel-bg {
-  flex-shrink: 1;
+  width: 400px;
 }
 
 #home .marvel-bg img {
   width: 100%;
 }
 
-#home .flexLink {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+#home .flexLink a {
   padding: 0px 20px;
 }
 
-#home .flexLink a {
-  padding: 0px 20px;
+#home button {
+  font-weight: 800;
+  font-size: 1.3rem;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+#home button:hover {
+  background-color: white;
+  color: black;
+}
+
+#home button:active {
+  outline: none;
+  background-color: #d6d6d6;
 }
 
 /* HEADER */

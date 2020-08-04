@@ -48,7 +48,6 @@ const Favoris = () => {
                 <div>
                   <div>
                     {dataPersonnage.data.results.map((result, index) => {
-                      console.log(dataComics.data.total);
                       return (
                         <>
                           {keysId.map((key, index) => {
@@ -87,7 +86,6 @@ const Favoris = () => {
                       return (
                         <>
                           {keysId.map((key, index) => {
-                            console.log(result);
                             if (result.id === Number(key)) {
                               return (
                                 <div

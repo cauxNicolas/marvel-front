@@ -24,8 +24,6 @@ const Perso = () => {
     };
     fetchData();
   }, [id]);
-  console.log(data.data);
-  console.log("dataComics", dataComics.data);
 
   return (
     <>
@@ -36,7 +34,6 @@ const Perso = () => {
       ) : (
         <>
           {data.data.results.map((result, index) => {
-            console.log("desc", result.description);
             return (
               <main id="perso" key={index}>
                 <div className="blocPerso">

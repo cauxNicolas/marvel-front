@@ -12,6 +12,8 @@ const PersosCard = ({
 }) => {
   const [favoris, setFavoris] = useState("star");
 
+  // verifier si un cookie existe Object.keys(Cookies.get()).length === 0
+
   // check favoris
   const goToFavoris = (event) => {
     event.preventDefault();
@@ -27,14 +29,6 @@ const PersosCard = ({
     }
     setTabPersoId(newTabPersoId);
   };
-
-  console.log("cookies", Cookies.get());
-  // verifier si un cookie existe Object.keys(Cookies.get()).length === 0
-  if (Object.keys(Cookies.get()).length !== 0) {
-    console.log("cookie existe");
-  } else {
-    console.log("cookie inexistant");
-  }
 
   return (
     <>

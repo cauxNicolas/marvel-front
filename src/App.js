@@ -43,15 +43,15 @@ function App() {
   // search - fin
 
   return (
-    <div>
+    <div id="marvel">
       <Router>
-        <Header
-          handleSearch={handleSearch}
-          handleSubmit={handleSubmit}
-          search={search}
-        />
         <Switch>
           <Route path="/personnages">
+            <Header
+              handleSearch={handleSearch}
+              handleSubmit={handleSubmit}
+              search={search}
+            />
             <Personnages
               dataLogin={dataLogin}
               setDataLogin={setDataLogin}
@@ -59,9 +59,19 @@ function App() {
             />
           </Route>
           <Route path="/perso/:id">
+            <Header
+              handleSearch={handleSearch}
+              handleSubmit={handleSubmit}
+              search={search}
+            />
             <Perso />
           </Route>
           <Route path="/comics">
+            <Header
+              handleSearch={handleSearch}
+              handleSubmit={handleSubmit}
+              search={search}
+            />
             <Comics
               dataComics={dataComics}
               setDataComics={setDataComics}
@@ -69,6 +79,11 @@ function App() {
             />
           </Route>
           <Route path="/favoris">
+            <Header
+              handleSearch={handleSearch}
+              handleSubmit={handleSubmit}
+              search={search}
+            />
             <Favoris />
           </Route>
           <Route path="/">

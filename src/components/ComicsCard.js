@@ -19,7 +19,6 @@ const ComicsCard = ({
     // on push dans le tableau
     if (newTabComicsId.indexOf(id) === -1) {
       newTabComicsId.push(id);
-      let updateCookie = `${Cookies.get("/comics")}-${id};`;
       Cookies.set(id, "/comics", { expires: 7 });
     } else {
       let suppr = newTabComicsId.indexOf(id);

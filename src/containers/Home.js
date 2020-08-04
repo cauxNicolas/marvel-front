@@ -8,27 +8,15 @@ const Home = () => {
   return (
     <main>
       <div className="homeFlex">
-        <div>
-          <img src={thanos} alt={thanos} />
-        </div>
         <div id="home" className="contentHome">
           <div className="marvel-bg">
             <img src={logo} alt={logo} />
           </div>
           <div className="flexLink">
             <Link to="/personnages">
-              <p>Personnages</p>
-            </Link>
-            <Link to="/comics">
-              <p>Comics</p>
-            </Link>
-            <Link to="/favoris">
-              <p>Favoris</p>
+              <button>CONTINUER</button>
             </Link>
           </div>
-        </div>
-        <div>
-          <img src={captain} alt={captain} />
         </div>
       </div>
     </main>

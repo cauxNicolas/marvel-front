@@ -1,32 +1,48 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 
-const ComicsCard = ({
-  url,
-  extension,
-  title,
-  id,
-  setTabcomicsid,
-  newTabComicsId,
-}) => {
+const ComicsCard = ({ url, extension, title, id }) => {
   const [favoris, setFavoris] = useState("star");
+  // pour les favoris
+  const [tabComicsId, setTabcomicsid] = useState([]);
+  const newTabComicsId = [...tabComicsId];
 
   // check favoris
   const goToFavoris = (event) => {
     event.preventDefault();
     // toggle star
     setFavoris(!favoris);
-    // on push dans le tableau
-    if (newTabComicsId.indexOf(id) === -1) {
-      newTabComicsId.push(id);
-      Cookies.set(id, "/comics", { expires: 7 });
-    } else {
-      let suppr = newTabComicsId.indexOf(id);
-      newTabComicsId.splice(suppr, 1);
-      Cookies.remove(id);
-    }
 
-    setTabcomicsid(newTabComicsId);
+    // on place les id en cookie dans une string en evitant le undefined
+    let currentFavorites = Cookies.get("favoris");
+    console.log(currentFavorites);
+
+    if (currentFavorites === undefined) {
+      Cookies.set("favoris", `${id}`, {
+        expires: 7,
+      });
+    } else {
+      let favoritesTab = currentFavorites.split("-");
+      // on place les nouveaux id uniquement
+      /* console.log(favoritesTab);
+      console.log(id);
+      console.log(favoritesTab.indexOf(id)); */
+      let stringifiedId = id.toString();
+      if (favoritesTab.indexOf(stringifiedId) === -1) {
+        favoritesTab.push(id);
+        let newFavorites = favoritesTab.join("-");
+        Cookies.set("favoris", newFavorites, {
+          expires: 7,
+        });
+      } else {
+        let idIndex = favoritesTab.indexOf(stringifiedId);
+        favoritesTab.splice(idIndex, 1);
+        let newFavorites = favoritesTab.join("-");
+        Cookies.set("favoris", newFavorites, {
+          expires: 7,
+        });
+      }
+    }
   };
 
   return (

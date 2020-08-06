@@ -27,6 +27,7 @@ const Favoris = () => {
   }, [setDataComics, setDataPersonnage]);
 
   const getCookie = Cookies.get();
+  console.log(getCookie);
   const keysId = Object.keys(getCookie);
 
   return (

@@ -73,7 +73,7 @@ h2 {
 }
 
 #home .marvel-bg {
-  width: 400px;
+  width: 650px;
 }
 
 #home .marvel-bg img {
@@ -123,6 +123,10 @@ h2 {
 #header a {
   color: initial;
   margin-right: 30px;
+}
+
+#header a:hover {
+  color: #f12022;
 }
 
 #header .headerLink {
@@ -236,9 +240,25 @@ main#perso,
   padding: 5px 5px;
   color: #f11f22;
   font-weight: bold;
-  font-size: 1.2rem;
   cursor: pointer;
   background: none;
+}
+.pagination button:hover {
+  color: #c71d20;
+}
+
+.pagination input {
+  width: 30px;
+  border: none;
+  background-color: #e2e2e2;
+  margin-right: 10px;
+  padding: 5px 0;
+  text-align: center;
+}
+
+.pagination input::placeholder {
+  color: black;
+  text-align: center;
 }
 
 /* PERSO */

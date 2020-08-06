@@ -56,6 +56,7 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
               limit={limit}
               total={dataLogin.data.total}
               setOffset={setOffset}
+              offset={offset}
             />
           </div>
         </main>

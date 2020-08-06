@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/marvel-bg.jpg";
-import captain from "../img/marvel-america.png";
-import thanos from "../img/marvel-thanos.png";
 
 const Home = () => {
   return (

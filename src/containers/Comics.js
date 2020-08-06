@@ -25,7 +25,7 @@ const Comics = ({ dataComics, setDataComics, setLocation }) => {
     fetchData();
   }, [offset, setDataComics]);
   setLocation(location.pathname);
-
+  console.log(dataComics.data);
   return (
     <div id="comics">
       {isLoading === true ? (

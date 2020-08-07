@@ -1,33 +1,41 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 
-const PersosCard = ({
-  url,
-  extension,
-  alt,
-  description,
-  id,
-  setTabPersoId,
-  newTabPersoId,
-}) => {
+const PersosCard = ({ url, extension, alt, description, id }) => {
   const [favoris, setFavoris] = useState("star");
-
-  // verifier si un cookie existe Object.keys(Cookies.get()).length === 0
 
   // check favoris
   const goToFavoris = (event) => {
     event.preventDefault();
     setFavoris(!favoris);
-    // on push dans le tableau
-    if (newTabPersoId.indexOf(id) === -1) {
-      newTabPersoId.push(id);
-      Cookies.set(id, "/personnages", { expires: 7 });
+
+    let currentFavorites = Cookies.get("favoris");
+
+    if (currentFavorites === undefined) {
+      Cookies.set("favoris", `${id}`, {
+        expires: 7,
+      });
     } else {
-      let suppr = newTabPersoId.indexOf(id);
-      newTabPersoId.splice(suppr, 1);
-      Cookies.remove(id);
+      let favoritesTab = currentFavorites.split("-");
+      let stringifiedId = id.toString();
+      if (favoritesTab.indexOf(stringifiedId) === -1) {
+        favoritesTab.push(id);
+        let newFavorites = favoritesTab.join("-");
+        Cookies.set("favoris", newFavorites, {
+          expires: 7,
+        });
+      } else {
+        let idIndex = favoritesTab.indexOf(stringifiedId);
+        favoritesTab.splice(idIndex, 1);
+        let newFavorites = favoritesTab.join("-");
+        Cookies.set("favoris", newFavorites, {
+          expires: 7,
+        });
+        if (favoritesTab.length === 0) {
+          Cookies.remove("favoris");
+        }
+      }
     }
-    setTabPersoId(newTabPersoId);
   };
 
   return (

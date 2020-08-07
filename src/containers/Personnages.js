@@ -8,9 +8,6 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
   let location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [offset, setOffset] = useState(0);
-  // pour les favoris
-  const [tabPersoId, setTabPersoId] = useState([]);
-  const newTabPersoId = [...tabPersoId];
 
   const limit = 100;
 
@@ -44,8 +41,6 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
                     alt={result.name}
                     description={result.description}
                     id={result.id}
-                    setTabPersoId={setTabPersoId}
-                    newTabPersoId={newTabPersoId}
                   />
                 </Link>
               );

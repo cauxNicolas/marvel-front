@@ -3,9 +3,6 @@ import Cookies from "js-cookie";
 
 const ComicsCard = ({ url, extension, title, id }) => {
   const [favoris, setFavoris] = useState("star");
-  // pour les favoris
-  const [tabComicsId, setTabcomicsid] = useState([]);
-  const newTabComicsId = [...tabComicsId];
 
   // check favoris
   const goToFavoris = (event) => {
@@ -13,9 +10,7 @@ const ComicsCard = ({ url, extension, title, id }) => {
     // toggle star
     setFavoris(!favoris);
 
-    // on place les id en cookie dans une string en evitant le undefined
     let currentFavorites = Cookies.get("favoris");
-    console.log(currentFavorites);
 
     if (currentFavorites === undefined) {
       Cookies.set("favoris", `${id}`, {
@@ -23,10 +18,6 @@ const ComicsCard = ({ url, extension, title, id }) => {
       });
     } else {
       let favoritesTab = currentFavorites.split("-");
-      // on place les nouveaux id uniquement
-      /* console.log(favoritesTab);
-      console.log(id);
-      console.log(favoritesTab.indexOf(id)); */
       let stringifiedId = id.toString();
       if (favoritesTab.indexOf(stringifiedId) === -1) {
         favoritesTab.push(id);
@@ -41,6 +32,9 @@ const ComicsCard = ({ url, extension, title, id }) => {
         Cookies.set("favoris", newFavorites, {
           expires: 7,
         });
+        if (favoritesTab.length === 0) {
+          Cookies.remove("favoris");
+        }
       }
     }
   };

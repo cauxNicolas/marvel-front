@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Cookies from "js-cookie";
-import Loader from "../img/loader.gif";
 import FavorisComics from "../components/FavorisComics";
 import FavorisPersonnages from "../components/FavorisPersonnages";
 

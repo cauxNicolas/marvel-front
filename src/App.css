@@ -57,7 +57,7 @@ h2 {
 }
 
 #marvel main {
-  height: 100vh;
+  height: calc(100vh - 93px);
 }
 
 /* HOME */

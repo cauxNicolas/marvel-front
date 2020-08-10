@@ -21,7 +21,7 @@ const Header = ({ search, handleSearch, handleSubmit }) => {
             <p>Comics</p>
           </div>
         </Link>
-        <Link to="favoris">
+        <Link to="/favoris">
           <div className="contentHeader">
             <p>Favoris</p>
           </div>

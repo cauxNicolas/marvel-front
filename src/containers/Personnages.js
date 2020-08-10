@@ -23,7 +23,7 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
     fetchData();
   }, [offset, setDataLogin]);
   setLocation(location.pathname);
-
+  console.log(dataLogin.data);
   return (
     <div id="personnages">
       {isLoading === true ? (

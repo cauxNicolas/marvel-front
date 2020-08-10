@@ -1,42 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Cookies from "js-cookie";
-import axios from "axios";
+import Loader from "../img/loader.gif";
+import FavorisComics from "../components/FavorisComics";
+import FavorisPersonnages from "../components/FavorisPersonnages";
 
 const Favoris = () => {
-  const [dataComics, setDataComics] = useState({});
-  const [dataPersonnage, setDataPersonnage] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  if (Cookies.get("favoris")) {
+    const cookie = Cookies.get("favoris");
+    const cookieTab = cookie.split("-");
 
-  const limit = 100;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const responseComics = await axios.get(
-        `http://gateway.marvel.com/v1/public/comics?&limit=${limit}${process.env.REACT_APP_MARVEL}`
-      );
-
-      const responsePersonnage = await axios.get(
-        `http://gateway.marvel.com/v1/public/characters?&limit=${limit}&${process.env.REACT_APP_MARVEL}`
-      );
-
-      setDataComics(responseComics.data);
-      setDataPersonnage(responsePersonnage.data);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, [setDataComics, setDataPersonnage]);
-
-  const getCookie = Cookies.get();
-  console.log(getCookie);
-  const keysId = Object.keys(getCookie);
-
-  return (
-    <div id="favoris">
-      {isLoading === true ? (
-        <div className="loading">
-          <p>Chargement de vos Favoris ...</p>
-        </div>
-      ) : (
+    return (
+      <div id="favoris">
         <main>
           <div className="content">
             <div className="favorisElement">
@@ -46,33 +20,12 @@ const Favoris = () => {
                     <span>Super-Héros</span>
                   </h2>
                 </div>
-                <div>
-                  <div>
-                    {dataPersonnage.data.results.map((result, index) => {
-                      return (
-                        <>
-                          {keysId.map((key, index) => {
-                            if (result.id === Number(key)) {
-                              return (
-                                <div
-                                  key={index}
-                                  className="favorisPersoElement"
-                                >
-                                  <div>
-                                    <img
-                                      src={`${result.thumbnail.path}.${result.thumbnail.extension}`}
-                                      alt={result.name}
-                                    />
-                                  </div>
-                                  <p>{result.name}</p>
-                                </div>
-                              );
-                            }
-                          })}
-                        </>
-                      );
-                    })}
-                  </div>
+                <div className="personnageFlex">
+                  {cookieTab === undefined
+                    ? ""
+                    : cookieTab.map((id, index) => {
+                        return <FavorisPersonnages id={id} />;
+                      })}
                 </div>
               </div>
               <div id="favorisComics">
@@ -81,41 +34,26 @@ const Favoris = () => {
                     <span>comics</span>
                   </h2>
                 </div>
-                <div>
-                  <div>
-                    {dataComics.data.results.map((result, index) => {
-                      return (
-                        <>
-                          {keysId.map((key, index) => {
-                            if (result.id === Number(key)) {
-                              return (
-                                <div
-                                  key={index}
-                                  className="favorisPersoElement"
-                                >
-                                  <div>
-                                    <img
-                                      src={`${result.thumbnail.path}.${result.thumbnail.extension}`}
-                                      alt={result.title}
-                                    />
-                                  </div>
-                                  <p>{result.title}</p>
-                                </div>
-                              );
-                            }
-                          })}
-                        </>
-                      );
-                    })}
-                  </div>
+                <div className="comicsFlex">
+                  {cookieTab === undefined
+                    ? ""
+                    : cookieTab.map((id, index) => {
+                        return <FavorisComics id={id} />;
+                      })}
                 </div>
               </div>
             </div>
           </div>
         </main>
-      )}
-    </div>
-  );
+      </div>
+    );
+  } else {
+    return (
+      <div className="loading">
+        <p>Vous n'avez aucun Favoris ...</p>
+      </div>
+    );
+  }
 };
 
 export default Favoris;

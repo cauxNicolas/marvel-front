@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import ComicsCard from "../components/ComicsCard";
+import Loader from "../img/loader.gif";
 import axios from "axios";
 
 const Comics = ({ dataComics, setDataComics, setLocation }) => {
@@ -28,6 +29,7 @@ const Comics = ({ dataComics, setDataComics, setLocation }) => {
       {isLoading === true ? (
         <div className="loading">
           <p>Chargement de Comics ...</p>
+          <img src={Loader} alt="loading" />
         </div>
       ) : (
         <main>

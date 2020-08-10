@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Pagination = ({ limit, total, setOffset, offset }) => {
   const totalPage = Math.round(total / limit); // merci Eros Math.round()

@@ -44,6 +44,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .loading p {
@@ -190,7 +191,7 @@ main#perso,
 
 #personnages .content > a:hover {
   transform: translateY(-4px);
-  box-shadow: #00000015 0px 15px 15px 0px;
+  box-shadow: #ff000038 0px 15px 15px 0px;
   transition: 0.3s;
 }
 
@@ -224,7 +225,7 @@ main#perso,
 
 #personnages .blockElementDesc {
   overflow: hidden;
-  height: 150px;
+  height: 40px;
 }
 
 /* PAGINATION */
@@ -332,8 +333,6 @@ main#perso,
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
-  background-color: white;
-  box-shadow: #00000026 0px 2px 4px 0px;
   position: relative;
 }
 
@@ -413,13 +412,17 @@ main#perso,
 
 #favoris #favorisPersonnages {
   margin-right: 20px;
-  border-right: 1px solid grey;
+  border-right: 1px solid #80808069;
 }
 
 h2 span {
   background-color: black;
   padding: 6px 10px;
   color: white;
+}
+
+#favoris h2 {
+  margin: 20px 0 50px 0;
 }
 
 #favoris .favorisPersoElement {
@@ -436,4 +439,37 @@ h2 span {
 
 #favoris .favorisPersoElement img {
   width: 100%;
+}
+
+#favorisPersonnages img,
+#favorisComics img {
+  height: 100px;
+}
+
+.ensemblePersonnage,
+.ensembleComics {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 49%;
+}
+
+.ensembleComics > div {
+  height: 100px;
+  width: 67px;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.ensemblePersonnage > div {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.personnageFlex,
+.comicsFlex {
+  display: flex;
+  flex-wrap: wrap;
 }

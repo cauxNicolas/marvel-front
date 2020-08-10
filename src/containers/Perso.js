@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Loader from "../img/loader.gif";
 
 const Perso = () => {
   const { id } = useParams();
@@ -30,6 +31,7 @@ const Perso = () => {
       {isLoading === true ? (
         <div className="loading">
           <p>Chargement du Héro ...</p>
+          <img src={Loader} alt="loading" />
         </div>
       ) : (
         <>

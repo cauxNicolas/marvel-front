@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Pagination from "../components/Pagination";
+import Loader from "../img/loader.gif";
 import axios from "axios";
 import PersosCard from "../components/PersosCard";
 
@@ -28,6 +29,7 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
       {isLoading === true ? (
         <div className="loading">
           <p>chargement de Super Héros ...</p>
+          <img src={Loader} alt="loading" />
         </div>
       ) : (
         <main>

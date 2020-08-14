@@ -81,6 +81,38 @@ h2 {
   width: 100%;
 }
 
+#home .flexLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#home .flexLink input {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+  outline: none;
+}
+
+#home .flexLink input[type="submit"] {
+  width: 100%;
+  background-color: #f11f22;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+#home .flexLink input[type="submit"]:hover {
+  background-color: #c71d20;
+}
+
 #home .flexLink a {
   padding: 0px 20px;
 }
@@ -104,6 +136,72 @@ h2 {
 #home button:active {
   outline: none;
   background-color: #d6d6d6;
+}
+
+#home .register a {
+  text-transform: initial;
+  font-size: 1rem;
+}
+
+.register span {
+  color: #f11f22;
+}
+
+.register span:hover {
+  color: #c71d20;
+}
+
+/* REGISTER */
+
+#register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url(./img/marvel-background2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#register {
+  padding: 20px;
+}
+
+#register form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#register form input {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+  outline: none;
+  background-color: #f3f3f3;
+}
+
+#register form input[type="submit"] {
+  width: 100%;
+  background-color: #f11f22;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#register form input[type="submit"]:hover {
+  background-color: #c71d20;
 }
 
 /* HEADER */
@@ -472,4 +570,16 @@ h2 span {
 .comicsFlex {
   display: flex;
   flex-wrap: wrap;
+}
+
+/* ERROR */
+input.error {
+  border: 1px solid red !important;
+  background-color: #ff00000d !important;
+  color: red;
+}
+
+.errorAffiche {
+  color: red;
+  font-size: 0.875rem;
 }

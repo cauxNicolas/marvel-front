@@ -7,6 +7,7 @@ import Comics from "./containers/Comics";
 import Favoris from "./containers/Favoris";
 import Header from "./components/Header";
 import Perso from "./containers/Perso";
+import Register from "./containers/Register";
 
 import "./App.css";
 
@@ -85,6 +86,9 @@ function App() {
               search={search}
             />
             <Favoris />
+          </Route>
+          <Route path="/register">
+            <Register />
           </Route>
           <Route path="/">
             <Home />

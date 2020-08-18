@@ -25,7 +25,7 @@ const PersosCard = ({ url, extension, alt, description, id }) => {
         }
       }
     }
-  }, []);
+  }, [id]);
 
   // check favoris
   const goToFavoris = (event) => {

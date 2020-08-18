@@ -258,6 +258,22 @@ h2 {
   background-color: #c71d20;
 }
 
+#header .headerLogin {
+  cursor: pointer;
+}
+
+#header .headerLogin:hover {
+  color: #f12022;
+}
+
+#header .headerLogin:active {
+  color: #c71d20;
+}
+
+#header .capital {
+  text-transform: capitalize;
+}
+
 /* PERSONNAGES */
 #personnages main,
 main#perso,
@@ -582,4 +598,19 @@ input.error {
 .errorAffiche {
   color: red;
   font-size: 0.875rem;
+}
+
+.errorEmail,
+.errorPassword {
+  background-color: #ffadad !important;
+}
+
+#errorHome {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#errorHome p {
+  text-align: left;
+  color: red;
 }

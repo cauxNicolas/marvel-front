@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
-  const [name, setName] = useState("caux");
-  const [lastname, setLastname] = useState("nicolas");
-  const [email, setEmail] = useState("marvel@marvel.com");
-  const [password, setPassowrd] = useState("azerty");
-  const [confirmPassword, setConfirmPassord] = useState("azerty");
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassowrd] = useState("");
+  const [confirmPassword, setConfirmPassord] = useState("");
   //
   const [errorName, setErrorName] = useState(false);
   const [errorLastname, setErrorLastname] = useState(false);
@@ -133,7 +133,7 @@ const Register = () => {
             value={password}
             onChange={handlePasswordChange}
             className={errorPassword === false ? "" : "error"}
-            className={errorPasswordIdentique === false ? "" : "error"}
+            //className={errorPasswordIdentique === false ? "" : "error"}
           />
           <input
             type="password"
@@ -141,7 +141,7 @@ const Register = () => {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
             className={errorConfirmPaswword === false ? "" : "error"}
-            className={errorPasswordIdentique === false ? "" : "error"}
+            //className={errorPasswordIdentique === false ? "" : "error"}
           />
           <input type="submit" placeholder="VALIDER" />
         </div>

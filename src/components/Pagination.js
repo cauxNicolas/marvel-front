@@ -48,8 +48,6 @@ const Pagination = ({ limit, total, setOffset, offset }) => {
     }
   };
 
-  console.log(totalPage);
-
   return (
     <div>
       <button onClick={firstpage}>{`|<`}</button>

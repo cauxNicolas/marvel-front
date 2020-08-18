@@ -15,8 +15,6 @@ const PersosCard = ({ url, extension, alt, description, id }) => {
       }
       for (let i = 0; i < numberTab.length; i++) {
         if (numberTab[i] === id) {
-          console.log(numberTab[i]);
-          console.log(id);
           setFavoris("starRed");
           setFavorisStar("fas fa-star");
         } else {

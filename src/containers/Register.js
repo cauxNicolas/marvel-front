@@ -71,8 +71,8 @@ const Register = () => {
         if (password.length > 5 && confirmPassword.length > 5) {
           if (password === confirmPassword) {
             try {
-              const response = await axios.post(
-                "http://localhost:3100/register",
+              await axios.post(
+                "https://marvel-back-nicaux.herokuapp.com/register",
                 {
                   name: name,
                   lastname: lastname,
@@ -81,7 +81,6 @@ const Register = () => {
                   confirmPassword: confirmPassword,
                 }
               );
-              console.log(response.data);
               setErrorName(false);
               history.push("/home");
             } catch (error) {

@@ -15,7 +15,7 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=${limit}&${process.env.REACT_APP_MARVEL}`
+        `http://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=${limit}&ts=1&apikey=63d48fb669cb6f20dde29bcaa0cc0be0&hash=3f705632315a5f5825baff31f0bde09c`
       );
       setDataLogin(response.data);
       setIsLoading(false);

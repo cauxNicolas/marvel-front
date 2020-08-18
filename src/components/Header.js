@@ -18,7 +18,7 @@ const Header = ({ search, handleSearch, handleSubmit }) => {
       }
     };
     connexion();
-  }, []);
+  }, [history]);
 
   const login = () => {
     Cookies.remove("lastname");

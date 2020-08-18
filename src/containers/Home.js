@@ -28,12 +28,14 @@ const Home = () => {
     if (email && password) {
       const fetchdata = async () => {
         try {
-          const response = await axios.post("http://localhost:3100/home", {
-            email: email,
-            password: password,
-          });
+          const response = await axios.post(
+            "https://marvel-back-nicaux.herokuapp.com/home",
+            {
+              email: email,
+              password: password,
+            }
+          );
           if (response.status === 200) {
-            console.log(response.data);
             Cookies.set("token", `${response.data.token}`, { expires: 7 });
             Cookies.set("lastname", `${response.data.lastname}`, {
               expires: 7,

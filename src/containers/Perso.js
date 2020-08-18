@@ -12,11 +12,11 @@ const Perso = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://gateway.marvel.com/v1/public/characters/${id}?${process.env.REACT_APP_MARVEL}`
+        `http://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=63d48fb669cb6f20dde29bcaa0cc0be0&hash=3f705632315a5f5825baff31f0bde09c`
       );
 
       const responseComics = await axios.get(
-        `http://gateway.marvel.com/v1/public/characters/${id}/comics?${process.env.REACT_APP_MARVEL}`
+        `http://gateway.marvel.com/v1/public/characters/${id}/comics?ts=1&apikey=63d48fb669cb6f20dde29bcaa0cc0be0&hash=3f705632315a5f5825baff31f0bde09c`
       );
 
       setData(response.data);

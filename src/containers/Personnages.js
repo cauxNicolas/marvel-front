@@ -11,17 +11,20 @@ const Personnages = ({ dataLogin, setDataLogin, setLocation }) => {
   const [offset, setOffset] = useState(0);
 
   const limit = 100;
-
+  console.log("/peronnages avant useffect");
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=${limit}&ts=1&apikey=63d48fb669cb6f20dde29bcaa0cc0be0&hash=3f705632315a5f5825baff31f0bde09c`
+        `https://gateway.marvel.com/v1/public/characters?offset=${offset}&limit=${limit}&ts=1&apikey=63d48fb669cb6f20dde29bcaa0cc0be0&hash=3f705632315a5f5825baff31f0bde09c`
       );
       setDataLogin(response.data);
+      console.log("/peronnages  entre response l.21");
+
       setIsLoading(false);
+      console.log("/peronnages  isloaoding l.23", isLoading);
     };
     fetchData();
-  }, [offset, setDataLogin]);
+  }, [offset, setDataLogin, isLoading]);
   setLocation(location.pathname);
 
   return (

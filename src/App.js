@@ -35,12 +35,13 @@ function App() {
     }
 
     const response = await axios.get(
-      `http://gateway.marvel.com/v1/public${locationUrl}${search}&ts=1&apikey=63d48fb669cb6f20dde29bcaa0cc0be0&hash=3f705632315a5f5825baff31f0bde09c`
+      `https://gateway.marvel.com/v1/public${locationUrl}${search}&ts=1&apikey=63d48fb669cb6f20dde29bcaa0cc0be0&hash=3f705632315a5f5825baff31f0bde09c`
     );
 
     setDataLogin(response.data);
     setDataComics(response.data);
     setSearch("");
+    console.log("app.js", "ligne 44");
   };
   // search - fin
 

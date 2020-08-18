@@ -7,7 +7,7 @@ export default function FavorisComics({ id }) {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://gateway.marvel.com/v1/public/comics/${id}?ts=1&apikey=63d48fb669cb6f20dde29bcaa0cc0be0&hash=3f705632315a5f5825baff31f0bde09c`
+        `https://gateway.marvel.com/v1/public/comics/${id}?ts=1&apikey=63d48fb669cb6f20dde29bcaa0cc0be0&hash=3f705632315a5f5825baff31f0bde09c`
       );
       setData(response.data);
     };

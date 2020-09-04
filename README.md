@@ -16,3 +16,27 @@
 - React - versions 16.13.1
 
 ## Preview
+
+### Login
+
+![Login](https://github.com/cauxNicolas/marvel-front/blob/master/src/img/login.png)
+
+### Register
+
+![Register](https://github.com/cauxNicolas/marvel-front/blob/master/src/img/register.png)
+
+### Personnages
+
+![Personnages](https://github.com/cauxNicolas/marvel-front/blob/master/src/img/personnages.png)
+
+### Perso
+
+![Perso](https://github.com/cauxNicolas/marvel-front/blob/master/src/img/perso.png)
+
+### Comics
+
+![Comics](https://github.com/cauxNicolas/marvel-front/blob/master/src/img/comics.png)
+
+### Favoris
+
+![Favoris](https://github.com/cauxNicolas/marvel-front/blob/master/src/img/favoris.png)

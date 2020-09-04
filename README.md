@@ -1,6 +1,7 @@
 # Marvel
 
-> Realization of a Marvel website with React. We had to connect to the Marvel Developpeur database, retrieve the data and display it.
+> Realization of a Marvel website with React. We had to connect to the Marvel Developpeur database, retrieve the data and display it. All the explanations of registration, connection and use of data can be found on this site:
+> https://developer.marvel.com/
 
 ## Site composition
 
